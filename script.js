@@ -49,3 +49,16 @@ function showNext() {
 // Agregar event listeners a los botones
 btnOne.addEventListener('click', showPrevious);
 btnTwo.addEventListener('click', showNext);
+
+// Función para manejar las teclas de flecha
+function handleKeyDown(event) {
+    if (event.key === 'ArrowLeft') {
+        showPrevious();
+    } else if (event.key === 'ArrowRight') {
+        showNext();
+    }
+}
+
+// Agregar event listener al evento de teclado
+document.addEventListener('keydown', handleKeyDown);
+
