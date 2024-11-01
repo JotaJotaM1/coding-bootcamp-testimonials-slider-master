@@ -219,3 +219,16 @@ h1 {
         font-size: 22px;
     }
 }
+
+@media screen and (min-width: 1600px) {
+    h1 {
+        font-size: 42px;
+    }
+    .imgAvatar {
+        width: 612px;
+    }
+
+    .containOne {
+        padding: 100px;
+    }
+}
