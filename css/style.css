@@ -192,16 +192,20 @@ h1 {
 
 @media screen and (min-width: 1440px){
     h1 {
-        font-size: 40px;
+        font-size: 30px;
         text-align: left;
         line-height: 45px;
         margin-bottom: 35px;
+    }
+    .containTwo {
+        margin-right: -196px;
+        max-width: 40%;
     }
     .imgAvatar {
         width: 512px;
     }
     .cntFigure img {
-        width: 800px;
+        width: 650px;
         bottom: 0;
     }
 
