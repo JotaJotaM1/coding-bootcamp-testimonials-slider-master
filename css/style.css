@@ -10,7 +10,7 @@ body {
     font-family: "Inter", sans-serif;
 }
 
-.containFather {
+.testimonial-slider {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,7 +18,7 @@ body {
     padding: 1rem;
 }
 
-.containOne {
+.slider-image-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,7 +28,7 @@ body {
     position: relative;
 }
 
-.imgAvatar {
+.slider-avatar {
     max-width: 100%;
     height: auto;
     border-radius: 0.5rem;
@@ -36,8 +36,7 @@ body {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
-
-.containBtn {
+.slider-navigation {
     display: flex;
     flex-direction: row;
     position: absolute;
@@ -48,37 +47,42 @@ body {
     box-shadow: 0px 3px 20px 0px rgba(0, 0, 139, 0.6);
 }
 
-.btnOne,
-.btnTwo {
+.slider-nav-btn {
     padding: 11px 16px;
     margin: 0.25rem;
     cursor: pointer;
     background-color: transparent;
     border: none;
+    transition: transform 0.2s ease;
 }
 
-.containBtn button img {
+.slider-nav-btn:hover {
+    transform: scale(1.05);
+}
+
+.slider-navigation button img {
     max-width: 100%;
     height: auto;
+    display: block;
 }
 
-.containTwo {
+.slider-content {
     max-width: 100%;
     padding: 20px 26px;
     z-index: 20;
 }
 
-.cntQuotes {
+.quote-icon {
     position: relative;
 }
 
-.cntQuotes img {
+.quote-icon img {
     position: absolute;
     left: 40%;
     height: 60px;
 }
 
-h1 {
+.testimonial-quote {
     color: var(--DarkBlue);
     font-weight: 300;
     font-size: 1.25rem;
@@ -88,36 +92,37 @@ h1 {
     line-height: 1.75rem;
 }
 
-.containName {
+.testimonial-author {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.text1 {
+.author-name {
     color: var(--DarkBlue);
     font-weight: 700;
     font-size: 1.125rem;
     text-align: center;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
 }
 
-.text2 {
+.author-role {
     color: var(--GrayishBlue);
     font-weight: 400;
     text-align: center;
+    margin: 0;
 }
 
-.cntFigure {
+.curve-decoration {
     position: absolute;
     left: 0px;
     bottom: -40px;
+    margin: 0;
 }
 
-.cntFigure img {
+.curve-decoration img {
     width: 300px;
-    position: relative;
     vertical-align: middle;
 }
 
@@ -130,105 +135,109 @@ h1 {
         height: 100vh;
     }
 
-    .containFather {
+    .testimonial-slider {
         flex-direction: row-reverse;
     }
 
-    .containOne {
+    .slider-image-section {
         padding: 88px;
     }
 
-    .containTwo {
+    .slider-content {
         margin-right: -196px;
         max-width: 38%;
     }
 
-    .imgAvatar {
+    .slider-avatar {
         width: 450px;
     }
 
-    h1 {
+    .testimonial-quote {
         font-size: 28px;
         text-align: left;
         line-height: 45px;
         margin-bottom: 35px;
     }
 
-    .containBtn {
+    .slider-navigation {
         bottom: 63px;
         left: 138px;
     }
 
-    .containName {
+    .testimonial-author {
         flex-direction: row;
-        justify-content: flex-start
+        justify-content: flex-start;
     }
 
-    .text1 {
+    .author-name {
         margin-bottom: 0;
         margin-right: 15px;
         font-size: 20px;
     }
 
-    .text2 {
+    .author-role {
         font-size: 20px;
     }
 
-    .cntQuotes img {
+    .quote-icon img {
         top: -31px;
         left: 15%;
         height: 100px;
     }
 
-    .cntFigure img {
-        width:550px;
+    .curve-decoration img {
+        width: 550px;
         bottom: -61px;
     }
 
-    .cntFigure {
+    .curve-decoration {
         bottom: 0;
     }
 }
 
-@media screen and (min-width: 1440px){
-    h1 {
+@media screen and (min-width: 1440px) {
+    .testimonial-quote {
         font-size: 30px;
         text-align: left;
         line-height: 45px;
         margin-bottom: 35px;
     }
-    .containTwo {
+
+    .slider-content {
         margin-right: -196px;
         max-width: 40%;
     }
-    .imgAvatar {
+
+    .slider-avatar {
         width: 512px;
     }
-    .cntFigure img {
+
+    .curve-decoration img {
         width: 650px;
         bottom: 0;
     }
 
-    .text1 {
+    .author-name {
         margin-bottom: 0;
         margin-right: 15px;
         font-size: 22px;
     }
 
-    .text2 {
+    .author-role {
         font-size: 22px;
     }
 }
 
 @media screen and (min-width: 1600px) {
-    h1 {
+    .testimonial-quote {
         font-size: 42px;
     }
-    .imgAvatar {
+
+    .slider-avatar {
         width: 612px;
     }
 
-    .containOne {
+    .slider-image-section {
         padding: 100px;
     }
 }

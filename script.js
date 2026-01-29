@@ -1,56 +1,78 @@
-// Información de testimonios
+// Testimonials data
 const testimonials = [
     {
         image: './images/image-tanya.jpg',
-        quote: "“ I’ve been interested in coding for a while but never taken the jump, until now. I couldn’t recommend this course enough. I’m now in the job of my dreams and so excited about the future. ”",
+        quote: "\" I've been interested in coding for a while but never taken the jump, until now. I couldn't recommend this course enough. I'm now in the job of my dreams and so excited about the future. \"",
         name: "Tanya Sinclair",
         profession: "UX Engineer"
     },
     {
         image: './images/image-john.jpg',
-        quote: "“ If you want to lay the best foundation possible I’d recommend taking this course. The depth the instructors go into is incredible. I now feel so confident about starting up as a professional developer.”",
+        quote: "\" If you want to lay the best foundation possible I'd recommend taking this course. The depth the instructors go into is incredible. I now feel so confident about starting up as a professional developer.\"",
         name: "John James",
         profession: "Junior Front-end Developer"
     }
 ];
 
-// Selecciona los elementos
-const imgElement = document.querySelector('.containOne img'); // Selecciona la imagen que se va a mostrar
-const quoteElement = document.querySelector('h1');
-const nameText = document.querySelector('.text1');
-const professionText = document.querySelector('.text2');
-const btnOne = document.querySelector('.btnOne');
-const btnTwo = document.querySelector('.btnTwo');
+// DOM elements
+const imgElement = document.querySelector('.slider-avatar');
+const quoteElement = document.querySelector('.testimonial-quote');
+const nameText = document.querySelector('.author-name');
+const professionText = document.querySelector('.author-role');
+const prevBtn = document.querySelector('.slider-nav-prev');
+const nextBtn = document.querySelector('.slider-nav-next');
 
-let currentIndex = 0; // Índice del testimonio actual
+// Current testimonial index
+let currentIndex = 0;
 
-// Función para actualizar la interfaz
-function updateTestimonial(index) {
-    imgElement.src = testimonials[index].image; // Actualiza la imagen
-    quoteElement.textContent = testimonials[index].quote; // Actualiza la cita
-    nameText.textContent = testimonials[index].name; // Actualiza el nombre
-    professionText.textContent = testimonials[index].profession; // Actualiza la profesión
+// Validate that all required elements exist
+const elementsExist = [imgElement, quoteElement, nameText, professionText, prevBtn, nextBtn].every(el => el !== null);
+
+if (!elementsExist) {
+    console.error('One or more required DOM elements were not found');
 }
 
-// Inicializa el primer testimonio
+/**
+ * Updates the testimonial display with the current index
+ * @param {number} index - The index of the testimonial to display
+ */
+function updateTestimonial(index) {
+    if (!elementsExist) return;
+
+    imgElement.src = testimonials[index].image;
+    imgElement.alt = `${testimonials[index].name}, ${testimonials[index].profession}`;
+    quoteElement.textContent = testimonials[index].quote;
+    nameText.textContent = testimonials[index].name;
+    professionText.textContent = testimonials[index].profession;
+}
+
+// Initialize first testimonial
 updateTestimonial(currentIndex);
 
-// Funciones para manejar los clics
+/**
+ * Show previous testimonial
+ */
 function showPrevious() {
     currentIndex = (currentIndex === 0) ? testimonials.length - 1 : currentIndex - 1;
     updateTestimonial(currentIndex);
 }
 
+/**
+ * Show next testimonial
+ */
 function showNext() {
     currentIndex = (currentIndex + 1) % testimonials.length;
     updateTestimonial(currentIndex);
 }
 
-// Agregar event listeners a los botones
-btnOne.addEventListener('click', showPrevious);
-btnTwo.addEventListener('click', showNext);
+// Add click event listeners to navigation buttons
+if (prevBtn) prevBtn.addEventListener('click', showPrevious);
+if (nextBtn) nextBtn.addEventListener('click', showNext);
 
-// Función para manejar las teclas de flecha
+/**
+ * Handle keyboard navigation with arrow keys
+ * @param {KeyboardEvent} event - The keyboard event
+ */
 function handleKeyDown(event) {
     if (event.key === 'ArrowLeft') {
         showPrevious();
@@ -59,6 +81,5 @@ function handleKeyDown(event) {
     }
 }
 
-// Agregar event listener al evento de teclado
+// Add keyboard event listener
 document.addEventListener('keydown', handleKeyDown);
-
